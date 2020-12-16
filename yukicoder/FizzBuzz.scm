@@ -1,31 +1,14 @@
 #!/usr/bin/env gosh
+;https://yukicoder.me/problems/no/9002
 
-(let ((a (read)) (b (read)) (s (read)))
-    (write (+ a b))
-    (display " ")
-    (write s)
-    (newline)
-)
+(define n (read))
 
-(define N (read))
-
-(map  
+(define (fizzbuzz a)
   (cond
-    ((= (mod a 15) 0) (display "FizzBuzz"))
-    ((= (mod a 3) 0) (display "Fizz"))
-    ((= (mod a 5) 0) (display "Buzz"))
-    (else (display a))
-  )　N)
+    ((= (mod a 15) 0) (print "FizzBuzz"))
+    ((= (mod a 5) 0) (print "Buzz"))
+    ((= (mod a 3) 0) (print "Fizz"))
+    (else (print a))))
 
-(define N (read))
+(for-each fizzbuzz (iota n 1))
 
-(define (fizzbuzz n)
-  (cond
-    ((= 0 (mod n 15)) "FizzBuzz")
-    ((= 0 (mod n  5)) "Buzz"    )
-    ((= 0 (mod n  3)) "Fizz"    )
-    (else n)
-  )
-)
-
-(for-each print (map fizzbuzz (iota N 1)))
